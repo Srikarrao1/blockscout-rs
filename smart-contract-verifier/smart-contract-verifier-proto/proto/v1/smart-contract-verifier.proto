@@ -24,7 +24,7 @@ service SourcifyVerifier {
 
 message VerifySolidityMultiPartRequest {
   /// If present, used to compare local compilation result with
-  optional string creation_bytecode = 1;
+   string creation_bytecode = 1;
   /// If creation_bytecode is not present, used to compare local compilation result with
   string deployed_bytecode = 2;
   /// Compiler version used to compile the contract
@@ -35,14 +35,14 @@ message VerifySolidityMultiPartRequest {
   string evm_version = 4;
   /// If present, optimizations are enabled with specified number of runs,
   /// otherwise optimizations are disabled
-  optional int32 optimization_runs = 5;
+   int32 optimization_runs = 5;
   /// Map from a library name to its address
   map<string, string> contract_libraries = 7;
 }
 
 message VerifySolidityStandardJsonRequest {
   /// If present, used to compare local compilation result with
-  optional string creation_bytecode = 1;
+   string creation_bytecode = 1;
   /// If creation_bytecode is not present, used to compare local compilation result with
   string deployed_bytecode = 2;
   /// Compiler version used to compile the contract
@@ -54,7 +54,7 @@ message VerifySolidityStandardJsonRequest {
 
 message VerifyVyperMultiPartRequest {
   /// If present, used to compare local compilation result with
-  optional string creation_bytecode = 1;
+   string creation_bytecode = 1;
   /// If creation_bytecode is not present, used to compare local compilation result with
   string deployed_bytecode = 2;
   /// Compiler version used to compile the contract
@@ -62,7 +62,7 @@ message VerifyVyperMultiPartRequest {
   /// Source file name to the actual source code
   map<string, string> sources = 6;
   /// Version of the EVM to compile for
-  optional string evm_version = 4;
+   string evm_version = 4;
 }
 
 message VerifyViaSourcifyRequest {
@@ -74,7 +74,7 @@ message VerifyViaSourcifyRequest {
   /// Files required for verification (see Sourcify Api)
   map<string, string> files = 3;
   // (optional) see Sourcify Api
-  optional int32 chosenContract = 4;
+   int32 chosenContract = 4;
 }
 
 message VerifyResponse {
@@ -96,9 +96,9 @@ message VerifyResponse {
     string evm_version = 5;
     /// (optional) WARNING: Before version 0.8.6 omitting the 'enabled' key was not equivalent to setting
     /// it to false and would actually disable all the optimizations.
-    optional bool optimization = 6;
+     bool optimization = 6;
     /// (optional) Specify number of optimizer runs, if optimizations are enabled
-    optional int32 optimization_runs = 7;
+     int32 optimization_runs = 7;
     /// Addresses of the libraries
     map<string, string> contract_libraries = 8;
     /// Raw settings pushed submitted to the compiler on local compilation
@@ -106,10 +106,10 @@ message VerifyResponse {
     string compiler_settings = 9;
     /// Constructor arguments used for deploying verified contract
     /// (exists only for creation inputs)
-    optional string constructor_arguments = 10;
+     string constructor_arguments = 10;
     /// Contract abi (https://docs.soliditylang.org/en/latest/abi-spec.html?highlight=abi#json);
     /// (does not exist for Yul contracts)
-    optional string abi = 11;
+     string abi = 11;
 
     message bytecode_part {
       string type = 1;
